@@ -117,3 +117,66 @@ FROM scrobbles
 WHERE DATE BETWEEN '2022-12-22' AND '2023-03-20'
 GROUP BY Artist, SongTitle
 ORDER BY PlayCount desc
+
+
+---
+
+
+/*Top 50 Artists by Number of Plays*/
+SELECT TOP 50 Artist, COUNT(Artist) AS ArtistPlays
+FROM ScrobblerProject.dbo.scrobbles
+GROUP BY Artist
+ORDER BY ArtistPlays desc
+
+/*Top 50 Albums by Number of Plays*/
+SELECT TOP 50 Artist, Album, COUNT(Album) AS AlbumPlays
+FROM ScrobblerProject.dbo.scrobbles
+GROUP BY Artist, Album
+ORDER BY AlbumPlays desc
+
+
+---
+
+
+/*Most Played by Time- Date is in UTC need to get EST? Need to Fix!!!...*/
+
+SELECT TOP 50 Artist, SongTitle, Date, Time, dateadd(hour, -5, Time) AS CorrectedTime
+FROM ScrobblerProject.dbo.scrobbles
+GROUP BY Artist, SongTitle, Date, Time
+Order by Date desc, Time desc
+
+---Morning (6am to 12pm)---
+SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays
+FROM ScrobblerProject.dbo.scrobbles
+	WHERE dateadd(hour, +5, Time) BETWEEN '06:00' AND '11:59'
+	GROUP BY Artist, SongTitle
+	ORDER BY SongPlays desc
+
+/*Checking Previous Query*/
+SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+FROM ScrobblerProject.dbo.scrobbles
+	WHERE Time BETWEEN '01:00' AND '06:59'
+	GROUP BY Artist, SongTitle 
+	ORDER BY SongPlays desc
+
+/*Afternoon (12pm to 6pm)
+SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+FROM ScrobblerProject.dbo.scrobbles
+	WHERE dateadd(hour, -5, Time) BETWEEN '12:00' AND '17:59'
+	GROUP BY Artist, SongTitle 
+	ORDER BY SongPlays desc
+
+---Night (6pm to 12am)---
+SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+FROM ScrobblerProject.dbo.scrobbles
+	WHERE dateadd(hour, -5, Time) BETWEEN '18:00' AND '23:59'
+	GROUP BY Artist, SongTitle 
+	ORDER BY SongPlays desc
+
+---Late Night (12am to 6am)---
+SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+FROM ScrobblerProject.dbo.scrobbles
+	WHERE dateadd(hour, -5, Time) BETWEEN '00:00' AND '05:59'
+	GROUP BY Artist, SongTitle 
+	ORDER BY SongPlays desc
+*/
