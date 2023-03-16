@@ -180,3 +180,4 @@ FROM ScrobblerProject.dbo.scrobbles
 	WHERE dateadd(hour, -5, Time) BETWEEN '00:00' AND '05:59'
 	GROUP BY Artist, SongTitle
 	ORDER BY SongPlays desc
+
