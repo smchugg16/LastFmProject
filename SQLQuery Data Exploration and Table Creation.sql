@@ -138,45 +138,45 @@ ORDER BY AlbumPlays desc
 ---
 
 
-/*Most Played by Time- Date is in UTC need to get EST? Need to Fix!!!...*/
+/*Most Played by Time of Day- 
+Note: Date is in UTC ("CorrectedTime" is an approximation for EST- not accounting for Daylight Savings)*/
 
-SELECT TOP 50 Artist, SongTitle, Date, Time, dateadd(hour, -5, Time) AS CorrectedTime
+---"Time Correction" test--- 
+SELECT Artist, SongTitle, Date, Time, dateadd(hour, -5, Time) AS CorrectedTime
 FROM ScrobblerProject.dbo.scrobbles
+	WHERE Time BETWEEN '11:00' AND '16:59'
 GROUP BY Artist, SongTitle, Date, Time
 Order by Date desc, Time desc
 
+
+---
+
 ---Morning (6am to 12pm)---
-SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays
+SELECT TOP 100 Artist, SongTitle, COUNT(SongTitle) AS SongPlays
 FROM ScrobblerProject.dbo.scrobbles
-	WHERE dateadd(hour, +5, Time) BETWEEN '06:00' AND '11:59'
+	WHERE Time BETWEEN '11:00' AND '16:59'
 	GROUP BY Artist, SongTitle
 	ORDER BY SongPlays desc
 
-/*Checking Previous Query*/
-SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+---Afternoon (12pm to 6pm)---
+SELECT TOP 100 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
 FROM ScrobblerProject.dbo.scrobbles
-	WHERE Time BETWEEN '01:00' AND '06:59'
+	WHERE Time BETWEEN '17:00' AND '22:59'
 	GROUP BY Artist, SongTitle 
 	ORDER BY SongPlays desc
 
-/*Afternoon (12pm to 6pm)
-SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+---Night (6pm to 12am)*---
+/*Note: Dateadd(hour,-5, Time) is to workaround UTC -> Looking for plays between approx 6 to 11:59pm EST*/ 
+SELECT TOP 100 Artist, SongTitle, COUNT(SongTitle) AS SongPlays
 FROM ScrobblerProject.dbo.scrobbles
-	WHERE dateadd(hour, -5, Time) BETWEEN '12:00' AND '17:59'
-	GROUP BY Artist, SongTitle 
+	WHERE Dateadd(hour, -5, Time) BETWEEN '18:00' AND '23:59'
+	GROUP BY Artist, SongTitle
 	ORDER BY SongPlays desc
 
----Night (6pm to 12am)---
-SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
-FROM ScrobblerProject.dbo.scrobbles
-	WHERE dateadd(hour, -5, Time) BETWEEN '18:00' AND '23:59'
-	GROUP BY Artist, SongTitle 
-	ORDER BY SongPlays desc
-
----Late Night (12am to 6am)---
-SELECT TOP 50 Artist, SongTitle, COUNT(SongTitle) AS SongPlays 
+---Late Night/Early Morning (12am to 6am)---
+/*Ditto note from above -> Looking for plays between approx 12am to 6am*/
+SELECT TOP 100 Artist, SongTitle, COUNT(SongTitle) AS SongPlays
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE dateadd(hour, -5, Time) BETWEEN '00:00' AND '05:59'
-	GROUP BY Artist, SongTitle 
+	GROUP BY Artist, SongTitle
 	ORDER BY SongPlays desc
-*/
