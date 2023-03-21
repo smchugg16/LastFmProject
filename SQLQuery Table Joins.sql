@@ -4,7 +4,7 @@ FROM ScrobblerProject.dbo.Fall20Plays
 
 
 
-/*Join #1- Joining all "Spring" tables*/
+/*Join #1- Joining all "Spring" tables- ONLY tracking if in Sp20 Column- How to fix???- Same problem with following code...*/
 SELECT Sp20.Artist, Sp20.SongTitle, COALESCE(Sp20.Spring20PlayCount, 0) AS Spring20Plays, 
 COALESCE(Sp21.Spring21PlayCount, 0) AS Spring21Plays, 
 COALESCE(Sp22.Spring22PlayCount, 0) AS Spring22Plays
