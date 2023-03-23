@@ -31,105 +31,92 @@ GROUP BY Artist
 
 ---Plays by Season/Year---
 /*Spring 2020*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Spring20PlayCount 
+SELECT Artist, SongTitle, Date, 'Spring' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2020-04-12' AND '2020-06-20'
-GROUP BY Artist, SongTitle
-ORDER BY Spring20PlayCount desc
+GROUP BY Artist, SongTitle, DATE
+ORDER BY Date asc
 
 /*Summer 2020*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Summer20PlayCount 
+SELECT Artist, SongTitle, Date, 'Summer' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2020-06-21' AND '2020-09-22'
-GROUP BY Artist, SongTitle
-ORDER BY Summer20PlayCount desc
+GROUP BY Artist, SongTitle, DATE
+ORDER BY Date asc
 
 /*Fall 2020*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Fall20PlayCount 
+SELECT Artist, SongTitle, Date, 'Fall' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2020-09-23' AND '2020-12-20'
-GROUP BY Artist, SongTitle
-ORDER BY Fall20PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Winter 2020-2021*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Winter21PlayCount 
+SELECT Artist, SongTitle, Date, 'Winter' AS Season 
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2020-12-21' AND '2021-03-20'
-GROUP BY Artist, SongTitle
-ORDER BY Winter21PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
-
+-
 
 /*Spring 2021*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Spring21PlayCount 
+SELECT Artist, SongTitle, Date, 'Spring' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2021-03-21' AND '2021-06-20'
-GROUP BY Artist, SongTitle
-ORDER BY Spring21PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Summer 2021*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Summer21PlayCount 
+SELECT Artist, SongTitle, Date, 'Summer' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2021-06-21' AND '2021-09-22'
-GROUP BY Artist, SongTitle
-ORDER BY Summer21PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Fall 2021*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Fall21PlayCount 
+SELECT Artist, SongTitle, Date, 'Fall' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2021-09-23' AND '2021-12-20'
-GROUP BY Artist, SongTitle
-ORDER BY Fall21PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Winter 2021-2022*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Winter22PlayCount 
+SELECT Artist, SongTitle, Date, 'Winter' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2021-12-21' AND '2022-03-20'
-GROUP BY Artist, SongTitle
-ORDER BY Winter22PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
-
-
+-
 
 /*Spring 2022*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Spring22PlayCount 
+SELECT Artist, SongTitle, Date, 'Spring' AS Season 
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2022-03-21' AND '2022-06-21'
-GROUP BY Artist, SongTitle
-ORDER BY Spring22PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Summer 2022*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Summer22PlayCount 
+SELECT Artist, SongTitle, Date, 'Summer' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2022-06-22' AND '2022-09-22'
-GROUP BY Artist, SongTitle
-ORDER BY Summer22PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Fall 2022*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Fall22PlayCount 
+SELECT Artist, SongTitle, Date, 'Fall' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2022-09-23' AND '2022-12-21'
-GROUP BY Artist, SongTitle
-ORDER BY Fall22PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 /*Winter 2022-2023*/
-SELECT Artist, SongTitle, 
-	COUNT(*) AS Winter23PlayCount 
+SELECT Artist, SongTitle, Date, 'Winter' AS Season
 FROM ScrobblerProject.dbo.scrobbles
 	WHERE DATE BETWEEN '2022-12-22' AND '2023-03-20'
-GROUP BY Artist, SongTitle
-ORDER BY Winter23PlayCount desc
+GROUP BY Artist, SongTitle, Date
+ORDER BY Date asc
 
 
 ---
