@@ -2,6 +2,7 @@
 SELECT Artist, Album, Title, Date
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-04-12' AND '2023-04-12'
+	AND Title IS NOT NULL
 	ORDER BY DATE desc
 
 
@@ -12,6 +13,7 @@ FROM ScrobblerProject.dbo.scrobbles2
 SELECT Artist, Album, COUNT(Album) AS AlbumPlays
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-04-12' AND '2023-04-13'
+	AND Title IS NOT NULL
 GROUP BY Artist, Album
 ORDER BY AlbumPlays desc
 
@@ -19,12 +21,14 @@ ORDER BY AlbumPlays desc
 SELECT Artist, Title, COUNT(Title) AS SongPlays
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-04-12' AND '2023-04-13'
+	AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SongPlays desc
 
 ---Plays on Artists---
 SELECT Artist, COUNT(Artist) AS ArtistPlays
 FROM ScrobblerProject.dbo.scrobbles2
+	WHERE Title IS NOT NULL
 GROUP BY Artist
 ORDER BY ArtistPlays desc
 
@@ -37,6 +41,7 @@ ORDER BY ArtistPlays desc
 SELECT Artist, Title, 'Spring' AS Season, '2020' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-04-12' AND '2020-06-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -44,6 +49,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Summer' AS Season, '2020' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-06-21' AND '2020-09-22'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -51,6 +57,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Fall' AS Season, '2020' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-09-23' AND '2020-12-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -58,6 +65,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Winter' AS Season, '2020' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2020-12-21' AND '2021-03-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -67,6 +75,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Spring' AS Season, '2021' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2021-03-21' AND '2021-06-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -74,6 +83,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Summer' AS Season, '2021' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2021-06-21' AND '2021-09-22'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -81,6 +91,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Fall' AS Season, '2021' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2021-09-23' AND '2021-12-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -88,6 +99,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Winter' AS Season, '2021' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2021-12-21' AND '2022-03-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -97,6 +109,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Spring' AS Season, '2022' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2022-03-21' AND '2022-06-21'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -104,6 +117,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Summer' AS Season, '2022' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2022-06-22' AND '2022-09-22'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -111,6 +125,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Fall' AS Season, '2022' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2022-09-23' AND '2022-12-21'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -118,6 +133,7 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Winter' AS Season, '2022' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2022-12-22' AND '2023-03-20'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
@@ -127,23 +143,9 @@ ORDER BY SeasonPlayCount desc
 SELECT Artist, Title, 'Spring' AS Season, '2023' AS Year, COUNT(Title) AS SeasonPlayCount
 FROM ScrobblerProject.dbo.scrobbles2
 	WHERE DATE BETWEEN '2023-03-21' AND '2023-04-12'
+		AND Title IS NOT NULL
 GROUP BY Artist, Title
 ORDER BY SeasonPlayCount desc
 
 
 ---
-
-
-/*Top 50 Artists by Number of Plays*/
-SELECT TOP 50 Artist, COUNT(Artist) AS ArtistPlays
-FROM ScrobblerProject.dbo.scrobbles
-	WHERE DATE BETWEEN '2020-04-12' AND '2023-04-12'
-GROUP BY Artist
-ORDER BY ArtistPlays desc
-
-/*Top 50 Albums by Number of Plays*/
-SELECT TOP 50 Artist, Album, COUNT(Album) AS AlbumPlays
-FROM ScrobblerProject.dbo.scrobbles
-	WHERE DATE BETWEEN '2020-04-12' AND '2023-04-12'
-GROUP BY Artist, Album
-ORDER BY AlbumPlays desc
