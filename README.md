@@ -7,4 +7,4 @@ The intention of this project is to determine what kinds of music I listen to th
 The data was ripped from my last.fm account using https://benjaminbenben.com/lastfm-to-csv/.
 Then, this data was cleaned using Microsoft Excel and SQL. Then, SQL was further used to create tables from the master dataset. After that, these tables were imported into Excel for use in Tableau.
 
-Once the tables were finished, they were loaded into Tableau, where I created a number of visualizations for a dashboard showcasing these listening habits. 
+Once the tables were finished, they were loaded into Tableau, where I created a number of visualizations for a dashboard showcasing these listening habits. Check out the dashboard here: https://public.tableau.com/app/profile/sean.chugg/viz/ListeningHabitsProject/Plays
