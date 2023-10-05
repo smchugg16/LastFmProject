@@ -1,0 +1,44 @@
+-- Define parameters for date range
+DECLARE @StartDate DATE = '2020-04-12';
+DECLARE @EndDate DATE = '2023-04-12';
+
+-- Common table expression for filtered scrobbles
+WITH FilteredScrobbles AS (
+    SELECT Artist, Album, Title, Date
+    FROM ScrobblerProject.dbo.scrobbles2
+    WHERE Date BETWEEN @StartDate AND @EndDate
+    AND Title IS NOT NULL
+)
+
+-- Play Counts
+SELECT Artist, Album, COUNT(Album) AS AlbumPlays
+FROM FilteredScrobbles
+GROUP BY Artist, Album
+ORDER BY AlbumPlays DESC;
+
+SELECT Artist, Title, COUNT(Title) AS SongPlays
+FROM FilteredScrobbles
+GROUP BY Artist, Title
+ORDER BY SongPlays DESC;
+
+SELECT Artist, COUNT(Artist) AS ArtistPlays
+FROM FilteredScrobbles
+GROUP BY Artist
+ORDER BY ArtistPlays DESC;
+
+-- Play Counts by Season/Year
+SELECT Artist, Title, Season, Year, COUNT(Title) AS SeasonPlayCount
+FROM (
+    SELECT Artist, Title, 
+           CASE
+               WHEN Date BETWEEN '2020-04-12' AND '2020-06-20' THEN 'Spring'
+               WHEN Date BETWEEN '2020-06-21' AND '2020-09-22' THEN 'Summer'
+               WHEN Date BETWEEN '2020-09-23' AND '2020-12-20' THEN 'Fall'
+               WHEN Date BETWEEN '2020-12-21' AND '2021-03-20' THEN 'Winter'
+               -- Add more seasons here
+           END AS Season,
+           YEAR(Date) AS Year
+    FROM FilteredScrobbles
+) AS SeasonalScrobbles
+GROUP BY Artist, Title, Season, Year
+ORDER BY SeasonPlayCount DESC;
