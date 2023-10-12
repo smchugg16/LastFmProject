@@ -43,19 +43,19 @@ SELECT Artist, Title, ISNULL(Season, 'Unknown') AS Season, COUNT(Title) AS Seaso
 FROM (
     SELECT Artist, Title, 
            CASE
-               WHEN Date BETWEEN '2020-04-12' AND '2020-06-20' THEN 'Spring 2020'
-               WHEN Date BETWEEN '2020-06-21' AND '2020-09-22' THEN 'Summer 2020'
-               WHEN Date BETWEEN '2020-09-23' AND '2020-12-20' THEN 'Fall 2020'
-               WHEN Date BETWEEN '2020-12-21' AND '2021-03-20' THEN 'Winter 2020'
-               WHEN Date BETWEEN '2021-03-21' AND '2021-06-20' THEN 'Spring 2021'
-               WHEN Date BETWEEN '2021-06-21' AND '2021-09-22' THEN 'Summer 2021'
-               WHEN Date BETWEEN '2021-09-23' AND '2021-12-20' THEN 'Fall 2021'
-               WHEN Date BETWEEN '2021-12-21' AND '2022-03-20' THEN 'Winter 2021'
-               WHEN Date BETWEEN '2022-03-21' AND '2022-06-20' THEN 'Spring 2022'
-               WHEN Date BETWEEN '2022-06-21' AND '2022-09-22' THEN 'Summer 2022'
-               WHEN Date BETWEEN '2022-09-23' AND '2022-12-20' THEN 'Fall 2022'
-               WHEN Date BETWEEN '2022-12-21' AND '2023-03-20' THEN 'Winter 2022'
-               WHEN Date BETWEEN '2023-03-21' AND '2023-06-20' THEN 'Spring 2023'
+               WHEN Date BETWEEN '2020-04-12' AND '2020-06-20' THEN 'Spring'
+               WHEN Date BETWEEN '2020-06-21' AND '2020-09-22' THEN 'Summer'
+               WHEN Date BETWEEN '2020-09-23' AND '2020-12-20' THEN 'Fall'
+               WHEN Date BETWEEN '2020-12-21' AND '2021-03-20' THEN 'Winter'
+               WHEN Date BETWEEN '2021-03-21' AND '2021-06-20' THEN 'Spring'
+               WHEN Date BETWEEN '2021-06-21' AND '2021-09-22' THEN 'Summer'
+               WHEN Date BETWEEN '2021-09-23' AND '2021-12-20' THEN 'Fall'
+               WHEN Date BETWEEN '2021-12-21' AND '2022-03-20' THEN 'Winter'
+               WHEN Date BETWEEN '2022-03-21' AND '2022-06-20' THEN 'Spring'
+               WHEN Date BETWEEN '2022-06-21' AND '2022-09-22' THEN 'Summer'
+               WHEN Date BETWEEN '2022-09-23' AND '2022-12-20' THEN 'Fall'
+               WHEN Date BETWEEN '2022-12-21' AND '2023-03-20' THEN 'Winter'
+               WHEN Date BETWEEN '2023-03-21' AND '2023-06-20' THEN 'Spring'
                ELSE 'Unknown'
            END AS Season,
            YEAR(Date) AS Year
