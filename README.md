@@ -15,7 +15,3 @@ Visualization: The dataset was imported into Tableau, a data visualization tool.
 
 ## Dashboard
 Explore the interactive dashboard showcasing the results of this analysis: [Listening Habits Dashboard](https://public.tableau.com/app/profile/sean.chugg/viz/ListeningHabitsProject/Plays).
-
-This updated description provides a clear and organized summary of your project, detailing the data sources, data processing steps, and the visualization tool used. It also provides a direct link to the Tableau dashboard for users to explore the results of your analysis.
-
-
