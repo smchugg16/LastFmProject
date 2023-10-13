@@ -19,5 +19,3 @@ Explore the interactive dashboard showcasing the results of this analysis: [List
 This updated description provides a clear and organized summary of your project, detailing the data sources, data processing steps, and the visualization tool used. It also provides a direct link to the Tableau dashboard for users to explore the results of your analysis.
 
 
-## Note
-Please click on the "SQLCode" Branch to see the most recent SQL code
