@@ -1,16 +1,16 @@
--- Correct Date and Time Formats
+--- Correct Date and Time Formats ---
 ALTER TABLE ScrobblerProject.dbo.ScrobblesUpdated
 ALTER COLUMN DATE DATE;
 
 ALTER TABLE ScrobblerProject.dbo.ScrobblesUpdated
 ALTER COLUMN TIME TIME;
 
--- Create a Temporary Table for Corrected Data
+--- Create a Temporary Table for Corrected Data ---
 SELECT Artist, Album, Title, DATE, TIME
 INTO #TempCorrectedData
 FROM ScrobblerProject.dbo.ScrobblesUpdated;
 
--- Create Tables for Song Plays by Time of Day (UTC to EST Conversion)
+--- Create Tables for Song Plays by Time of Day (UTC to EST Conversion) ---
 WITH TimeOfDayClassification AS (
     SELECT
         Artist,
@@ -24,7 +24,7 @@ WITH TimeOfDayClassification AS (
     FROM #TempCorrectedData
 )
 
--- Select the results for each time period
+--- Select the Plays for each time period ---
 SELECT 'Morning' AS TimeOfDay, Artist, Title, COUNT(*) AS TotalTimeSongPlays
 FROM TimeOfDayClassification
 WHERE TimeOfDay = 'Morning'
@@ -46,5 +46,5 @@ WHERE TimeOfDay = 'Late Night/Early Morning'
 GROUP BY Artist, Title
 ORDER BY TimeOfDay, TotalTimeSongPlays DESC;
 
--- Clean up temporary tables
+--- Clean up temporary tables ---
 DROP TABLE #TempCorrectedData;
