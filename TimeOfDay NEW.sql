@@ -30,16 +30,19 @@ FROM TimeOfDayClassification
 WHERE TimeOfDay = 'Morning'
 GROUP BY Artist, Title
 UNION ALL
+    
 SELECT 'Afternoon' AS TimeOfDay, Artist, Title, COUNT(*) AS TotalTimeSongPlays
 FROM TimeOfDayClassification
 WHERE TimeOfDay = 'Afternoon'
 GROUP BY Artist, Title
 UNION ALL
+    
 SELECT 'Night' AS TimeOfDay, Artist, Title, COUNT(*) AS TotalTimeSongPlays
 FROM TimeOfDayClassification
 WHERE TimeOfDay = 'Night'
 GROUP BY Artist, Title
 UNION ALL
+    
 SELECT 'Late Night/Early Morning' AS TimeOfDay, Artist, Title, COUNT(*) AS TotalTimeSongPlays
 FROM TimeOfDayClassification
 WHERE TimeOfDay = 'Late Night/Early Morning'
