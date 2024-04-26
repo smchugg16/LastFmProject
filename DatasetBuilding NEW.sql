@@ -1,7 +1,7 @@
 
 --- Define parameters for date ranges (3.5 years) ---
 DECLARE @StartDate DATE = '2020-04-12';
-DECLARE @EndDate DATE = '2023-10-12';
+DECLARE @EndDate DATE = '2024-04-12';
 
 --- Create a temporary table for filtered scrobbles ---
 CREATE TABLE #TempFilteredScrobbles (
@@ -57,7 +57,9 @@ FROM (
                WHEN Date BETWEEN '2022-12-22' AND '2023-03-20' THEN 'Winter'
                WHEN Date BETWEEN '2023-03-21' AND '2023-06-21' THEN 'Spring'
 			   WHEN Date BETWEEN '2023-06-22' AND '2023-09-23' THEN 'Summer'
-			   WHEN Date BETWEEN '2023-09-24' AND '2023-10-12' THEN 'Fall'
+			   WHEN Date BETWEEN '2023-09-24' AND '2023-12-21' THEN 'Fall'
+			   WHEN Date BETWEEN '2023-12-22' AND '2024-03-19' THEN 'Winter'
+			   WHEN Date BETWEEN '2024-03-20' AND '2024-04-12' THEN 'Spring'
                ELSE 'Unknown'
            END AS Season,
            YEAR(Date) AS Year
