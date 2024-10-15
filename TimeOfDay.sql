@@ -89,7 +89,7 @@ SELECT Artist, Title, TimeOfDay, TotalTimeSongPlays
 FROM #LateNightPlays;
 
 
-SELECT * FROM dbo.FullDayPlays
+SELECT * FROM dbo.DayPlays
 	ORDER BY TimeOfDay, TotalTimeSongPlays desc;
 
 -- Clean up temporary tables
