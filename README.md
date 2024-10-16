@@ -14,4 +14,4 @@ This project utilizes [Last.Fm]([last.fm](https://www.last.fm/)), a platform tha
 - Visualization: The dataset was imported into Tableau, a data visualization tool. Here, a variety of visualizations were created to showcase and interpret my listening habits.
 
 ## Dashboard:
-Explore the interactive dashboard showcasing the results of this analysis: [Listening Habits Dashboard](https://public.tableau.com/app/profile/sean.chugg/viz/ListeningHabitsProject/Plays).
+Explore the interactive dashboard showcasing the results of this analysis: [Listening Habits Dashboard]((https://public.tableau.com/app/profile/sean.chugg/viz/ListeningHabitsDashboardOctober2024/ListeningHabitsDashboard)).
