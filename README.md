@@ -9,7 +9,7 @@ This project utilizes [Last.Fm]([last.fm](https://www.last.fm/)), a platform tha
 
 - Data Cleaning: Initial data cleaning and preparation were performed using Microsoft Excel and SQL to ensure accuracy and consistency.
 
-- Table Creation: SQL was further utilized to organize and structure the dataset, resulting in a master dataset. This also included tables for [Time of Day](https://github.com/smchugg16/LastFmProject/blob/main/TimeOfDay%20NEW.sql) a song was listened to, [How many times a Year a song was listened to](https://github.com/smchugg16/LastFmProject/blob/main/YearlyPlays.sql) and [others]((https://github.com/smchugg16/LastFmProject/blob/main/DatasetBuilding%20NEW.sql)).
+- Table Creation: SQL was further utilized to organize and structure the dataset, resulting in a [master dataset](https://github.com/smchugg16/LastFmProject/blob/main/DatasetBuilding%20Oct2024%20Update.sql). This also included tables for [Time of Day](https://github.com/smchugg16/LastFmProject/blob/main/TimeOfDay%20NEW.sql) a song was listened to, [How many times a Year a song was listened to](https://github.com/smchugg16/LastFmProject/blob/main/YearlyPlays.sql) and [others]((https://github.com/smchugg16/LastFmProject/blob/main/DatasetBuilding%20NEW.sql)).
 
 - Visualization: The dataset was imported into Tableau, a data visualization tool. Here, a variety of visualizations were created to showcase and interpret my listening habits.
 
