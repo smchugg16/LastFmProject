@@ -1,7 +1,7 @@
 # Music Listening Habits Analysis
 
 ## Overview:
-This project utilizes [Last.Fm]([last.fm](https://www.last.fm/)), a platform that tracks music "scrobbles" (plays), to analyze my listening habits on Spotify and Apple Music over the period from April 12, 2020, to October 12, 2024*. The primary goal of this project is to gain insights into my music preferences, discover patterns in when and what I listen to, and explore trends within the data.
+This project utilizes [Last.Fm]([last.fm](https://www.last.fm/)), a platform that tracks music "scrobbles" (plays), to analyze my listening habits on Spotify and Apple Music over the period from April 12, 2020, to April 12, 2025. The primary goal of this project is to gain insights into my music preferences, discover patterns in when and what I listen to, and explore trends within the data.
 
 ## Methodology:
 
